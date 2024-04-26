@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google reCAPTCHA</title>
+    <style>
+        /* Adjusting the position of the reCAPTCHA badge */
+        .grecaptcha-badge {
+            left: 10 px !important; /* Adjust this value as needed */
+            right: auto !important;
+        }
+    </style>
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6Lc_s8cpAAAAAK5rFbwWjZ5cU7j5zaNLA6RktNlH"></script>
+</head>
+<body>
+    <!-- Your HTML content here -->
+
+</body>
+</html>
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+
+  <!-- Your code -->
+        <link rel="icon" type="image/x-icon" href="https://codehs.com/uploads/bbceeda7411da80560ed1cc611229869">
+
+    <body oncontextmenu="return false">
+
+    <link rel="icon" type="image/x-icon" href="https://codehs.com/uploads/bbceeda7411da80560ed1cc611229869">
+
+
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --navbar-bg-color: hsl(0, 0%, 15%);
+      --navbar-text-color: hsl(0, 0%, 85%);
+      --navbar-text-color-focus: white;
+      --navbar-bg-contrast: hsl(0, 0%, 25%);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      height: 2000px; /* Just for demonstration */
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1000px;
+      padding-left: 1.4rem;
+      padding-right: 1.4rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #navbar {
+      --navbar-height: 64px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      transition: transform 0.3s ease-in-out; /* Adding transition */
+      z-index: 1000; /* Ensuring it's on top of other content */
+    }
+
+    .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      height: var(--navbar-height);
+      align-items: center;
+      background-color: var(--navbar-bg-color);
+    }
+
+    .home-link,
+    .navbar-link {
+      color: var(--navbar-text-color);
+      text-decoration: none;
+      display: flex;
+      font-weight: 400;
+      align-items: center;
+    }
+
+    .home-link:is(:focus, :hover) {
+      color: var(--navbar-text-color-focus);
+    }
+
+    .navbar-link {
+      justify-content: center;
+      width: 100%;
+      padding: 0.4em 0.8em;
+      border-radius: 5px;
+    }
+
+    .navbar-link:is(:focus, :hover) {
+      color: var(--navbar-text-color-focus);
+      background-color: var(--navbar-bg-contrast);
+    }
+
+    .navbar-logo {
+      background-color: #579457;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      margin-right: 0.5em;
+    }
+
+    #navbar-toggle {
+      cursor: pointer;
+      border: none;
+      background-color: transparent;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .icon-bar {
+      display: block;
+      width: 25px;
+      height: 4px;
+      margin: 2px;
+      background-color: var(--navbar-text-color);
+    }
+
+    #navbar-toggle:is(:focus, :hover) .icon-bar {
+      background-color: var(--navbar-text-color-focus);
+    }
+
+    #navbar-toggle[aria-expanded="true"] .icon-bar:is(:first-child, :last-child) {
+      position: absolute;
+      margin: 0;
+      width: 30px;
+    }
+
+    #navbar-toggle[aria-expanded="true"] .icon-bar:first-child {
+      transform: rotate(45deg);
+    }
+
+    #navbar-toggle[aria-expanded="true"] .icon-bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    #navbar-toggle[aria-expanded="true"] .icon-bar:last-child {
+      transform: rotate(-45deg);
+    }
+
+      right: 0; /* Adjusted to slide from right to left */
+
+
+    #navbar-toggle[aria-expanded="true"] + #navbar-menu {
+      background-color: rgba(0, 0, 0, 0.4);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .navbar-links {
+      list-style: none;
+      position: absolute;
+      background-color: var(--navbar-bg-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      left: 0;
+      right: 0;
+      margin: 1.4rem;
+      border-radius: 5px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    #navbar-toggle[aria-expanded="true"] + #navbar-menu .navbar-links {
+      padding: 1em;
+    }
+
+   .navbar-links {
+      list-style: none;
+      position: absolute;
+      background-color: var(--navbar-bg-color);
+      display: flex;
+      flex-direction: column;
+      width: 100%; /* Take the whole width */
+      height: 100%;
+    }
+    
+    @media screen and (min-width: 700px) {
+      #navbar-toggle,
+      #navbar-toggle[aria-expanded="true"] {
+        display: none;
+      }
+
+      #navbar-menu,
+      #navbar-toggle[aria-expanded="true"] #navbar-menu {
+        visibility: visible;
+        opacity: 1;
+        position: static;
+        display: block;
+        height: 100%;
+      }
+
+      .navbar-links,
+      #navbar-toggle[aria-expanded="true"] #navbar-menu .navbar-links {
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        position: static;
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+      }
+    }
+        .navbar-logo {
+      background-color: #579457;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      margin-right: 0.5em;
+    }
+  
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #fff; /* Set text color to white */
+}
+
+
+</style>
+</head>
+<body>
+
+
+
+
+
+
+<body translate="no">
+  <header id="navbar">
+    <nav class="navbar-container container">
+      <a href="/" class="home-link">
+ <img src="https://codehs.com/uploads/bbceeda7411da80560ed1cc611229869" alt="LOGO" width="30px" height="30px">' Khaled Yousef</a>
+      <button type="button" id="navbar-toggle" aria-controls="navbar-menu" aria-label="Toggle menu" aria-expanded="false">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div id="navbar-menu" aria-labelledby="navbar-toggle">
+        <ul class="navbar-links">
+          <li class="navbar-item"><a class="navbar-link" href="/about">Home</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="research-papers.html"><center>Research Papers</center></a></li>
+          <li class="navbar-item"><a class="navbar-link" href="popup.html">Contact me</a></li>
+        <li class="navbar-item"><a class="navbar-link scrollDownLink" href="#">Projects</a></li>
+        <li class="navbar-item"><a class="navbar-link scrollDownLink" href="#"><center>Media Mentions</center></a></li>
+        <li class="navbar-item"><a class="navbar-link scrollDownLink" href="#"><center>Awards & Honors</center></a></li>
+        <li class="navbar-item"><a class="navbar-link scrollDownLink" href="#">Publications</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <script>
+  
+document.querySelectorAll('.scrollDownLink').forEach(link => {
+  link.addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent default link behavior
+    var currentPosition = window.pageYOffset;
+    var newPosition = currentPosition + 1460;
+    window.scrollTo({
+      top: newPosition,
+      behavior: 'smooth'
+    });
+  });
+});
+
+
+
+
+
+    const navbar = document.getElementById('navbar');
+    let lastScrollTop = 0;
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (currentScroll > lastScrollTop) {
+        // Downscroll code
+        navbar.style.transform = 'translateY(-100%)'; // Hide the navigation bar
+      } else {
+        // Upscroll code
+        navbar.style.transform = 'translateY(0)'; // Show the navigation bar
+      }
+
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+    });
+  </script>
+</body>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+    <link rel="icon" type="image/x-icon" href="https://codehs.com/uploads/bbceeda7411da80560ed1cc611229869">
+    </head>
+    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khaled Yousef - Directory</title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Platypi:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  
+  
+  
+  <style>
+  
+
+  
+  
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+
+    
+.fixed-header {
+    /* Remove position: fixed; */
+    width: 100%;
+    height: 400px; /* Set a fixed height */
+    background-image: url("https://codehs.com/uploads/49c050733d18ce62d8f9433c5b3fa915");
+    background-size: cover;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: top 0.3s;
+    z-index: 1000;
+    overflow: hidden; /* Prevent overflow */
+}
+
+
+
+
+    .header-text {
+  text-align: center;
+  font-family: 'Platypi', sans-serif; /* Apply custom font */
+  font-size: 7.5em; /* Adjust the font size here */
+}
+
+    .content {
+      margin-top: 200px;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body onload="typeWriter()">
+
+  <header class="fixed-header">
+    <div class="header-text" id="headerText">
+      <!-- The typewriter text will be inserted here -->
+    </div>
+  </header>
+
+
+
+  <script>
+    var i = 0;
+    var txt = 'kffvKhaled Yousef';
+    var speed = 70;
+
+    function typeWriter() {
+      var headerText = document.getElementById("headerText");
+      if (i < txt.length) {
+        headerText.innerHTML += txt.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+<br>
+<br>
+<br>
+
+
+
+
+
+
+
+
+
+<head>
+
+<link rel="stylesheet" href="styles.css">
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css'>
+
+<script src='https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js'></script>
+
+<div class="container">
+    <div class="main-body">
+    
+          <!-- Breadcrumb -->
+          <nav aria-label="breadcrumb" class="main-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="javascript:void(0)">Profile</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Khaled Yousef</li>
+            </ol>
+          </nav>
+          <!-- /Breadcrumb -->
+    
+          <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                    <img src="https://codehs.com/uploads/bbceeda7411da80560ed1cc611229869" alt="Admin" class="rounded-circle" width="150">
+                    <div class="mt-3">
+                      <h2>Khaled Yousef</h2>
+                      <p class="text-secondary mb-1">Machanical Engineering Professor</p>
+                      <p class="text-muted font-size-sm">East Lansing, MI, U.S.A.</p>
+                      <button class="btn btn-outline-primary"><a href="popup.html">Message Dr. Khaled Yousef</a></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card mt-3">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    <h6 class="mb-0"><svg width="25" height="25" viewBox="-2.73 0 1225.016 1225.016" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" stroke="#000000" stroke-width="1.225016" transform="rotate(0)">
+    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+    <g id="SVGRepo_iconCarrier">
+        <path fill="#E0E0E0" d="M1041.858 178.02C927.206 63.289 774.753.07 612.325 0 277.617 0 5.232 272.298 5.098 606.991c-.039 106.986 27.915 211.42 81.048 303.476L0 1225.016l321.898-84.406c88.689 48.368 188.547 73.855 290.166 73.896h.258.003c334.654 0 607.08-272.346 607.222-607.023.056-162.208-63.052-314.724-177.689-429.463zm-429.533 933.963h-.197c-90.578-.048-179.402-24.366-256.878-70.339l-18.438-10.93-191.021 50.083 51-186.176-12.013-19.087c-50.525-80.336-77.198-173.175-77.16-268.504.111-278.186 226.507-504.503 504.898-504.503 134.812.056 261.519 52.604 356.814 147.965 95.289 95.36 147.728 222.128 147.688 356.948-.118 278.195-226.522 504.543-504.693 504.543z"></path>
+        <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="609.77" y1="1190.114" x2="609.77" y2="21.084">
+            <stop offset="0" stop-color="#20b038"></stop>
+            <stop offset="1" stop-color="#60d66a"></stop>
+        </linearGradient>
+        <path fill="url(#a)" d="M27.875 1190.114l82.211-300.18c-50.719-87.852-77.391-187.523-77.359-289.602.133-319.398 260.078-579.25 579.469-579.25 155.016.07 300.508 60.398 409.898 169.891 109.414 109.492 169.633 255.031 169.57 409.812-.133 319.406-260.094 579.281-579.445 579.281-.023 0 .016 0 0 0h-.258c-96.977-.031-192.266-24.375-276.898-70.5l-307.188 80.548z"></path>
+        <image overflow="visible" opacity=".08" width="682" height="639" xlink:href="FCC0802E2AF8A915.png" transform="translate(270.984 291.372)"></image>
+        <path fill-rule="evenodd" clip-rule="evenodd" fill="#FFF" d="M462.273 349.294c-11.234-24.977-23.062-25.477-33.75-25.914-8.742-.375-18.75-.352-28.742-.352-10 0-26.25 3.758-39.992 18.766-13.75 15.008-52.5 51.289-52.5 125.078 0 73.797 53.75 145.102 61.242 155.117 7.5 10 103.758 166.266 256.203 226.383 126.695 49.961 152.477 40.023 179.977 37.523s88.734-36.273 101.234-71.297c12.5-35.016 12.5-65.031 8.75-71.305-3.75-6.25-13.75-10-28.75-17.5s-88.734-43.789-102.484-48.789-23.75-7.5-33.75 7.516c-10 15-38.727 48.773-47.477 58.773-8.75 10.023-17.5 11.273-32.5 3.773-15-7.523-63.305-23.344-120.609-74.438-44.586-39.75-74.688-88.844-83.438-103.859-8.75-15-.938-23.125 6.586-30.602 6.734-6.719 15-17.508 22.5-26.266 7.484-8.758 9.984-15.008 14.984-25.008 5-10.016 2.5-18.773-1.25-26.273s-32.898-81.67-46.234-111.326z"></path>
+        <path fill="#FFF" d="M1036.898 176.091C923.562 62.677 772.859.185 612.297.114 281.43.114 12.172 269.286 12.039 600.137 12 705.896 39.633 809.13 92.156 900.13L7 1211.067l318.203-83.438c87.672 47.812 186.383 73.008 286.836 73.047h.255.003c330.812 0 600.109-269.219 600.25-600.055.055-160.343-62.328-311.108-175.649-424.53zm-424.601 923.242h-.195c-89.539-.047-177.344-24.086-253.93-69.531l-18.227-10.805-188.828 49.508 50.414-184.039-11.875-18.867c-49.945-79.414-76.312-171.188-76.273-265.422.109-274.992 223.906-498.711 499.102-498.711 133.266.055 258.516 52 352.719 146.266 94.195 94.266 146.031 219.578 145.992 352.852-.118 274.999-223.923 498.749-498.899 498.749z"></path>
+    </g>
+</svg>   Whatsapp</h6>
+
+<style>
+    .myDiv a {
+        text-decoration: none; /* Remove default underline */
+    }
+
+    .myDiv a:hover {
+        text-decoration: none; /* Remove underline on hover */
+    }
+</style>
+<div class="myDiv">
+                    <span class="text-secondary"><a href="https://www.w3schools.com">Whatsapp Account</a>
+
+                    </span>
+                    </div>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    <h6 class="mb-0"><svg width="20" height="20" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+    <g id="SVGRepo_iconCarrier">
+        <rect x="2" y="2" width="29" height="29" rx="14" fill="#1275B1"></rect>
+        <path d="M12.6186 9.69215C12.6186 10.6267 11.8085 11.3843 10.8093 11.3843C9.81004 11.3843 9 10.6267 9 9.69215C9 8.7576 9.81004 8 10.8093 8C11.8085 8 12.6186 8.7576 12.6186 9.69215Z" fill="white"></path>
+        <path d="M9.24742 12.6281H12.3402V22H9.24742V12.6281Z" fill="white"></path>
+        <path d="M17.3196 12.6281H14.2268V22H17.3196C17.3196 22 17.3196 19.0496 17.3196 17.2049C17.3196 16.0976 17.6977 14.9855 19.2062 14.9855C20.911 14.9855 20.9008 16.4345 20.8928 17.5571C20.8824 19.0244 20.9072 20.5219 20.9072 22H24V17.0537C23.9738 13.8954 23.1508 12.4401 20.4433 12.4401C18.8354 12.4401 17.8387 13.1701 17.3196 13.8305V12.6281Z" fill="white"></path></g></svg>  Linkedin</h6>
+        
+        <style>
+    .myDiv a {
+        text-decoration: none; /* Remove default underline */
+    }
+
+    .myDiv a:hover {
+        text-decoration: none; /* Remove underline on hover */
+    }
+</style>
+<div class="myDiv">
+                    <span class="text-secondary"><a href="https://www.w3schools.com">Linkedin Page</a>
+
+                    </span>
+                    </div>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    <h6 class="mb-0"><svg width="29" height="29" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <path fill="#4285f4" d="M256 411.12L0 202.667 256 0z"/>
+    <path fill="#356ac3" d="M256 411.12l256-208.453L256 0z"/>
+    <circle fill="#a0c3ff" cx="256" cy="362.667" r="149.333"/>
+    <path fill="#76a7fa" d="M121.037 298.667c23.968-50.453 75.392-85.334 134.963-85.334s110.995 34.881 134.963 85.334H121.037z"/></svg>   Google Scholar</h6>
+    
+    
+    <style>
+    .myDiv a {
+        text-decoration: none; /* Remove default underline */
+    }
+
+    .myDiv a:hover {
+        text-decoration: none; /* Remove underline on hover */
+    }
+</style>
+<div class="myDiv">
+                    <span class="text-secondary"><a href="https://www.w3schools.com">Google Scholar Page</a>
+
+                    </span>
+                    </div>
+                  </li>
+                  
+
+
+<style>
+    .myDiv a {
+        text-decoration: none; /* Remove default underline */
+    }
+
+    .myDiv a:hover {
+        text-decoration: none; /* Remove underline on hover */
+    }
+</style>
+
+                  
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    <h6 class="mb-0">
+                        <svg width="29" height="29" xmlns="http://www.w3.org/2000/svg" aria-label="Gmail" role="img" viewBox="0 0 512 512" fill="#000000">
+    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+    <g id="SVGRepo_iconCarrier">
+        <rect width="512" height="512" rx="15%" fill="#ffffff"></rect>
+        <path d="M158 391v-142l-82-63V361q0 30 30 30" fill="#4285f4"></path>
+        <path d="M 154 248l102 77l102-77v-98l-102 77l-102-77" fill="#ea4335"></path>
+        <path d="M354 391v-142l82-63V361q0 30-30 30" fill="#34a853"></path>
+        <path d="M76 188l82 63v-98l-30-23c-27-21-52 0-52 26" fill="#c5221f"></path>
+        <path d="M436 188l-82 63v-98l30-23c27-21 52 0 52 26" fill="#fbbc04"></path>
+    </g>
+</svg>
+
+    </g>
+</svg>   E-mail</h6>
+
+<style>
+    .myDiv a {
+        text-decoration: none; /* Remove default underline */
+    }
+
+    .myDiv a:hover {
+        text-decoration: none; /* Remove underline on hover */
+    }
+</style>
+
+<div class="myDiv">
+                    <span class="text-secondary"><a href="mailto:Khyousef@msu.edu">Khyousef@msu.edu</a>
+                    </span>
+                    </div>
+                  </li>
+                  
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    <h6 class="mb-0">
+                        <svg width="29" height="29" xmlns="http://www.w3.org/2000/svg" aria-label="Phone" role="img" viewBox="0 0 512 512" fill="#000000">
+    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+    <g id="SVGRepo_iconCarrier">
+        <rect width="512" height="512" rx="15%" fill="#20df40"></rect>
+        <path fill="#ffffff" d="M395 338c-10-9-22-17-33-23-23-16-43-17-59 6-10 14-23 16-37 10-39-18-68-43-84-82-8-16-8-31 10-42 9-6 19-14 18-28-1-18-44-78-62-84-8-2-14-2-22 0-41 14-57 46-42 85a451 451 0 0 0 251 248l17 5c26 0 57-25 67-50 9-24-10-34-24-45z"></path>
+        <path fill="none" stroke="#ffffff" stroke-linecap="round" stroke-width="10" d="M268 138s41-1 72 30c31 30 27 74 27 74m-87-63s18-2 33 14c15 15 13 34 13 34M255 98s64-3 111 44c47 48 43 114 43 114"></path>
+    </g>
+</svg>
+
+    </g>
+</svg>   Phone Number</h6>
+
+<style>
+    .myDiv a {
+        text-decoration: none; /* Remove default underline */
+    }
+
+    .myDiv a:hover {
+        text-decoration: none; /* Remove underline on hover */
+    }
+</style>
+
+<div class="myDiv">
+
+                    <span class="text-secondary">    <a href="tel:+15174282663">+1 (517)-428-2663</a>
+</span>
+</div>
+                  </li>
+                  
+                  
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    <h6 class="mb-0"><svg width="29" height="29" xmlns="http://www.w3.org/2000/svg" aria-label="Facebook" role="img" viewBox="0 0 512 512" fill="#000000">
+    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+    <g id="SVGRepo_iconCarrier">
+        <rect width="512" height="512" rx="15%" fill="#1877f2"></rect>
+        <path d="M355.6 330l11.4-74h-71v-48c0-20.2 9.9-40 41.7-40H370v-63s-29.3-5-57.3-5c-58.5 0-96.7 35.4-96.7 99.6V256h-65v74h65v182h80V330h59.6z" fill="#ffffff"></path>
+    </g>
+</svg>   Facebook</h6>
+
+<style>
+    .myDiv a {
+        text-decoration: none; /* Remove default underline */
+    }
+
+    .myDiv a:hover {
+        text-decoration: none; /* Remove underline on hover */
+    }
+</style>
+
+<div class="myDiv">
+
+                    <span class="text-secondary"><a href="https://www.w3schools.com">Facebook Account</a>
+
+                    </span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                        <br>
+                      <h3 class="mb-0">Full Name:</h3>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        <br>
+                        <h3>
+                      Khaled Abdelkarim Abdelmajid Yousef</h3>
+                    </div>
+                    <h2>______________________________________</h2>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h3 class="mb-0">Email:</h3>
+                    </div>
+                    <div class="col-sm-9 text-secondary"><a href="mailto:Khyousef@msu.edu"><h3>Khyousef@msu.edu</h3></a>                    </div>
+                    <h2>______________________________________</h2>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h3 class="mb-0">Phone:</h3>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+<a href="tel:+15174282663"><h3>+1 (517)-428-2663</h3></a>                    </div>
+                    <h2>______________________________________</h2>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h3 class="mb-0">General <br> Specialty:</h3>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        <h5>
+Researcher with experience as a Postdoctoral Fellow <br>  and Visiting Scholar at Michigan State University, USA. <br> Additionally, holds the position of Associate Professor <br> in Mechanical Engineering at Menoufia University.      
+</h5>
+</div>
+                    <h2>______________________________________</h2>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h3 class="mb-0">Address:</h3>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        <h3>
+East Lansing, MI, U.S.A.
+</h3>
+</div>
+                    <h2>______________________________________</h2>
+                    </div>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h3 class="mb-0">Current <br> Position:</h3>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        <h5>
+Postdoc and Visiting Scholar at Michigan State <br>
+University USA. Associate Professor of Mechanical
+ <br> Engineering at Menoufia University.</h5>
+</div>
+                    </div>
+                  </div>
+              </div>
+
+
+
+
+        </div>
+    </div>
+    
+    
+    
+    
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Text with Left Margin</title>
+<style>
+    .text-with-margin {
+        margin-left: 5%; /* 5% from the left */
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    }
+    
+    .BIOGRAPHY {
+    margin-left: 5%; /* 5% from the left */
+    font-family: 'Montserrat', sans-serif; /* Specify the font family */
+    font-size: 16px; /* Set the font size */
+    text-align: justify; /* Justify text */
+    text-indent: 2em;
+    max-width: 85%; /* Set the maximum width */
+
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('path/to/roboto.woff2') format('woff2'), /* Modern Browsers */
+         url('path/to/roboto.woff') format('woff'); /* Legacy Browsers */
+    font-weight: normal;
+    font-style: normal;
+}
+
+.JOB-TITLE {
+    margin-left: 7%; /* 5% from the left */
+    font-family: 'Roboto', sans-serif; /* Set the font to Roboto */
+    font-size: 15px; /* Set the font size */
+    text-align: justify; /* Justify text */
+    max-width: 85%; /* Set the maximum width */
+}
+
+
+    
+</style>
+</head>
+<body>
+
+<h1 class="text-with-margin">BIOGRAPHY</h1>
+<center>
+<img src="https://codehs.com/uploads/a5dff3573c5665b48531ca0b15240d54" alt="Computer Man" style="width:90%;height:20px;">
+</center>
+
+<br>
+
+<h1 class="JOB-TITLE">Ph.D., Second Language Studies, Michigan State University
+</h1>
+
+<br>
+
+<h1 class="BIOGRAPHY">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+
+</h1>
+
+
+
+
+</body>
+</html>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!DOCTYPE html>
+<html>
+<head>
+<center>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.collapsible {
+  background-color: transparent; /* Removed gray background */
+  color: black; /* Changed text color to black */
+  cursor: pointer;
+  padding: 18px;
+  width: 85%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  position: relative; /* Added for positioning */
+}
+
+    .texts {
+    margin-left: 5%; /* 5% from the left */
+    font-family: 'Montserrat', sans-serif; /* Specify the font family */
+    font-size: 16px; /* Set the font size */
+    text-align: justify; /* Justify text */
+    text-indent: 2em;
+    max-width: 85%; /* Set the maximum width */
+
+}
+
+
+.collapsible::after {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  color: black; /* Changed plus sign color to black */
+}
+
+.active::after {
+  content: "-";
+}
+
+.active, .collapsible:hover {
+  background-color: transparent; /* Removed gray background */
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  text-align: justify; /* Justify text */
+  margin: 0 auto; /* Center the container */
+  max-width: 85%; /* Limit width to 85% of viewport */
+}
+
+hr {
+  border: 0;
+  width: 85%;
+  height: 4px; /* Increased thickness */
+  background-color: #777; /* Default gray color */
+  transition: background-color 0.3s ease; /* Transition for color change */
+  margin: 10px 0; /* Added margin for easier hover */
+}
+
+.hr-green {
+  background-color: #4c9e25 !important; /* Bright green color */
+}
+</style>
+</head>
+<body>
+<hr>
+<button type="button" class="collapsible"><H2>PROJECTS</H2></button>
+<div class="content">
+<H1>📗 <U>Project #1</U></H1>
+<h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h6>
+<h6>_____________________________________________________________________________________________________________________________________________________________________________________________________________________</h6>
+<H1>📙 <U>Project #2</U></H1>
+<h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h6>
+<h6>_____________________________________________________________________________________________________________________________________________________________________________________________________________________</h6>
+<H1>📘 <U>Project #3</U></H1>
+<h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h6>
+</div>
+<hr>
+
+<button type="button" class="collapsible"><H2>MEDIA MENTIONS</H2></button>
+<div class="content">
+    
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image and Text Layout</title>
+<style>
+  .GLOBE {
+    display: flex;
+    align-items: center;
+    width: 400px; /* Adjust the width as needed */
+    height: 200px; /* Adjust the height as needed */
+  }
+
+  .PHOTO-GLOBE {
+    width: 150px; /* Adjust the width as needed */
+    height: 150px; /* Adjust the height as needed */
+    border-radius: 50%; /* Make it circular */
+  }
+
+  .PROJECT-TITLE {
+    flex: 1; /* Fill the remaining space */
+    padding-left: 20px; /* Add some space between the image and the text */
+    margin-top: 50px; /* Move the text up by 10 pixels */
+    
+  }
+
+  h2, h5, h3, time {
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Hide overflowing text */
+    text-overflow: ellipsis; /* Show ellipsis for overflow */
+    margin: 0; /* Remove any default margins */
+    padding: 0; /* Remove any default padding */
+  }
+  
+  .green-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  /* Hover effect */
+  .green-link:hover {
+    background-color: lightgreen;
+  }
+  
+</style>
+</head>
+<body>
+
+<div class="GLOBE">
+  <img src="https://people.cal.msu.edu/wp-content/uploads/sites/49/2022/02/CAL_pd_media_article_100.png" alt="Your Image" class="PHOTO-GLOBE">
+  <div class="PROJECT-TITLE">
+    <h2 style="font-size: 50px">Title</h2>
+    <h5 style="font-size: 20px">Place</h5>
+    <time style="color: #6F7378;" datetime="2024-04-21"><h4>April 1, 2024</h4></time>
+    <h5 style="font-size: 20px">Description</h5>
+    <br>
+    <a href="#" class="green-link">READ NOW »</a>
+    <h5>_________________________________________________________________________________________________________________________________</h5>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+
+<div class="GLOBE">
+  <img src="https://people.cal.msu.edu/wp-content/uploads/sites/49/2022/02/CAL_pd_media_article_100.png" alt="Your Image" class="PHOTO-GLOBE">
+  <div class="PROJECT-TITLE">
+    <h2 style="font-size: 50px">Title</h2>
+    <h5 style="font-size: 20px">Place</h5>
+    <time style="color: #6F7378;" datetime="2024-04-21"><h4>April 1, 2024</h4></time>
+    <h5 style="font-size: 20px">Description</h5>
+    <br>
+    <a href="#" class="green-link">READ NOW »</a>
+    <h5>_________________________________________________________________________________________________________________________________</h5>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+
+<div class="GLOBE">
+  <img src="https://people.cal.msu.edu/wp-content/uploads/sites/49/2022/02/CAL_pd_media_article_100.png" alt="Your Image" class="PHOTO-GLOBE">
+  <div class="PROJECT-TITLE">
+    <h2 style="font-size: 50px">Title</h2>
+    <h5 style="font-size: 20px">Place</h5>
+    <time style="color: #6F7378;" datetime="2024-04-21"><h4>April 1, 2024</h4></time>
+    <h5 style="font-size: 20px">Description</h5>
+    <br>
+    <a href="#" class="green-link">READ NOW »</a>
+    <h5>_________________________________________________________________________________________________________________________________</h5>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+
+
+<div class="GLOBE">
+  <img src="https://people.cal.msu.edu/wp-content/uploads/sites/49/2022/02/CAL_pd_media_article_100.png" alt="Your Image" class="PHOTO-GLOBE">
+  <div class="PROJECT-TITLE">
+    <h2 style="font-size: 50px">Title</h2>
+    <h5 style="font-size: 20px">Place</h5>
+    <time style="color: #6F7378;" datetime="2024-04-21"><h4>April 1, 2024</h4></time>
+    <h5 style="font-size: 20px">Description</h5>
+    <br>
+    <a href="#" class="green-link">READ NOW »</a>
+ <br>
+<br><br>
+<br>
+  </div>
+</div>
+
+
+</body>
+</html>
+
+    
+</div>
+<hr>
+
+<button type="button" class="collapsible"><H2>AWARDS AND HONORS</H2></button>
+<div class="content">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hover Effect</title>
+<style>
+/* Style for the anchor tag */
+a {
+  text-decoration: none; /* Remove default underline */
+  color: black; /* Default text color */
+  border-bottom: 6px dotted transparent; /* Default underline */
+  transition: color 0.3s, border-bottom 0.3s; /* Smooth transition */
+}
+
+/* Hover effect */
+a:hover {
+  color: green; /* Change text color on hover */
+  border-bottom-color: green; /* Change underline color on hover */
+  border-bottom-style: dotted; /* Change underline style to dotted on hover */
+}
+</style>
+</head>
+<body>
+
+<br>
+<br>
+
+<!-- Anchor tag with hover effect -->
+<h1>🎖️ <a href="#">Award #1</a></h1>
+<h1> Description. Description. Description.</h1>
+<h3>2023-2024</h3>
+<h2> Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description.</h2>
+<h2>__________________________________________________________________</h2>
+
+
+<!-- Anchor tag with hover effect -->
+<h1>🎖️ <a href="#">Award #1</a></h1>
+<h1> Description. Description. Description.</h1>
+<h3>2023-2024</h3>
+<h2> Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description.</h2>
+<h2>__________________________________________________________________</h2>
+
+
+<!-- Anchor tag with hover effect -->
+<h1>🎖️ <a href="#">Award #1</a></h1>
+<h1> Description. Description. Description.</h1>
+<h3>2023-2024</h3>
+<h2> Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description.</h2>
+<h2>__________________________________________________________________</h2>
+
+
+<!-- Anchor tag with hover effect -->
+<h1>🎖️ <a href="#">Award #1</a></h1>
+<h1> Description. Description. Description.</h1>
+<h3>2023-2024</h3>
+<h2> Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description.</h2>
+<h2>__________________________________________________________________</h2>
+
+<!-- Anchor tag with hover effect -->
+<h1>🎖️ <a href="#">Award #1</a></h1>
+<h1> Description. Description. Description.</h1>
+<h3>2023-2024</h3>
+<h2> Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description.</h2>
+<h2>__________________________________________________________________</h2>
+
+
+<!-- Anchor tag with hover effect -->
+<h1>🎖️ <a href="#">Award #1</a></h1>
+<h1> Description. Description. Description.</h1>
+<h3>2023-2024</h3>
+<h2> Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description.</h2>
+<h2>__________________________________________________________________</h2>
+</body>
+</html>
+
+
+</div>
+<hr>
+<button type="button" class="collapsible"><h2>PUBLICATIONS</h2></button>
+<div class="content">
+    <br>
+<h1 class="texts">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+
+</h1>
+</div>
+<hr>
+
+
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("mouseover", function() {
+    var hr = this.nextElementSibling.nextElementSibling;
+    hr.classList.add("hr-green");
+  });
+
+  coll[i].addEventListener("mouseout", function() {
+    var hr = this.nextElementSibling.nextElementSibling;
+    hr.classList.remove("hr-green");
+  });
+
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+
+
+
+</script>
+</center>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+    #tawkchat-container{
+        left: 0;
+        right: auto;
+        margin-left: 20px; /* Adjust this value as needed */
+        margin-right: 0;
+    }
+</style>
+<!-- Start of Tawk.to Script -->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/662c2c40a0c6737bd1313cb6/1hse8pni6';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+    })();
+</script>
+<!-- End of Tawk.to Script -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Bootstrap footer bottom</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <script
+    type="text/javascript"
+    src="/js/lib/dummy.js"
+    
+  ></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+  <style id="compiled-css" type="text/css">
+    /* ==========================================
+    FOR DEMO PURPOSE
+  ========================================== */
+body {
+  background: #ffffff; /* Set background color to white */
+}
+
+.text-small {
+  font-size: 0.9rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+a:hover, a:focus {
+  text-decoration: none;
+}
+
+.form-control {
+  background: #ffffff; /* Set background color to white */
+  background: #ffffff; /* Set background color to white */
+  color: white; /* Added to make text white */
+}
+
+.form-control:focus {
+  background: #ffffff; /* Set background color to white */
+}
+
+footer {
+  background: #ffffff; /* Set background color to white */
+}
+
+
+/* ==========================================
+    CUSTOM UTILS CLASSES
+  ========================================== */
+  body, html {
+    height: 100%;
+  }
+  
+  /* Add this rule to make text in footer black */
+footer,
+footer p,
+footer a {
+  color: black;
+}
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+
+    /* EOS */
+  </style>
+
+  <script id="insert"></script>
+
+</head>
+<body>
+
+
+    <!-- FOOTER -->
+    <footer class="w-100 py-4 flex-shrink-0">
+        <div class="container py-4">
+            <div class="row gy-4 gx-5">
+                <div class="col-lg-4 col-md-6">
+                    <br>
+                    <h5 class="h1 text-white">FB.</h5>
+                    <p class="small text-muted">Thank you for visiting Dr. Khaled Yousef's site. For appointments or inquiries, please don't hesitate to reach out at any time. Stay tuned for updates on engineering breakthroughs, academic achievements, and innovative projects. Dive into the world of academia and discover the latest developments that are shaping the way we approach education and research. Keep exploring for insights, inspiration, and opportunities to collaborate at the forefront of progress.</p>
+                    <br>
+                    <p class="small text-muted mb-0">&copy; Copyrights. All rights reserved. 
+                    <hr>
+                </div>
+                
+                <div class="col-lg-2 col-md-6">
+                    <br>
+                    <br>
+                    <h5 class="text-white mb-3">Quick links</h5>
+                    <ul class="list-unstyled text-muted">
+                        <li>Quick Links</li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="research-papers.html">Research Papers</a></li>
+                        <li><a class="scrollUpLink" href="#">Projects</a></li>
+                        <li><a class="scrollUpLink" href="#">Media Mentions</a></li>
+                        <li><a class="scrollUpLink" href="#">Awards  & Honors</a></li>
+                        <li><a class="scrollUpLink" href="#">Publications</a></li>
+
+                    </ul>
+                    <hr>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="text-white mb-3">Quick links</h5>
+                    <ul class="list-unstyled text-muted">
+                        <li>🌐 Try Visiting...</li>
+                        <li><a href="#">► Whatsapp</a></li>
+                        <li><a href="#">► Linkedin</a></li>
+                        <li><a href="#">► Google Scholar</a></li>
+                        <li><a href="#">► E-Mail</a></li>
+                        <li><a href="#">► Phone Number</a></li>
+                        <li><a href="#">► Facebook</a></li>
+                        <li><a href="#">► Try Contacting Dr. Khaled Yousef</a></li>
+                    </ul>
+                    <hr>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-white mb-3">Newsletter</h5>
+                    <p class="small text-muted"><strong>Thank You!</strong></p>
+                    <p class="small text-muted">for checking my website. I will be open to any questions or concers that you might have.</p>
+                    <p class="small text-muted">If you have any questions, kindly provide your email address in the field below, and I'll promptly reach out to assist you.</p>
+                    <form action="https://formspree.io/f/meqyvdko" method="POST">
+                        <div class="input-group mb-3">
+                            <input class="form-control" type="email" name="_replyto" placeholder="Your email" aria-label="Your email" required>
+                            <button class="btn btn-primary" type="submit"><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+    <script type="text/javascript">//<![CDATA[
+
+
+
+  //]]></script>
+
+  <script>
+  
+  document.querySelectorAll('.scrollUpLink').forEach(link => {
+  link.addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent default link behavior
+    var currentPosition = window.pageYOffset;
+    var newPosition = currentPosition - 460;
+    window.scrollTo({
+      top: newPosition,
+      behavior: 'smooth'
+    });
+  });
+});
+
+    // tell the embed parent frame the height of the content
+    if (window.parent && window.parent.parent){
+      window.parent.parent.postMessage(["resultsFrame", {
+        height: document.body.getBoundingClientRect().height,
+        slug: "m215fdnw"
+      }], "*")
+    }
+
+    // always overwrite window.name, in case users try to set it manually
+    window.name = "result"
+  </script>
+
+
+</body>
+</html>
+
+
+
+
+            <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QR9DJX80N9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QR9DJX80N9');
+</script>
+
+
+
+
+</head>

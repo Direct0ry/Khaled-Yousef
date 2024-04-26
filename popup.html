@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+        <body oncontextmenu="return false">
+
+        <head>
+
+        <link rel="icon" type="image/x-icon" href="https://codehs.com/uploads/bbceeda7411da80560ed1cc611229869">
+
+    <body oncontextmenu="return false">
+
+    <link rel="icon" type="image/x-icon" href="https://codehs.com/uploads/bbceeda7411da80560ed1cc611229869">
+
+
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --navbar-bg-color: hsl(0, 0%, 15%);
+      --navbar-text-color: hsl(0, 0%, 85%);
+      --navbar-text-color-focus: white;
+      --navbar-bg-contrast: hsl(0, 0%, 25%);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      height: 2000px; /* Just for demonstration */
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1000px;
+      padding-left: 1.4rem;
+      padding-right: 1.4rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #navbar {
+      --navbar-height: 64px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      transition: transform 0.3s ease-in-out; /* Adding transition */
+      z-index: 1000; /* Ensuring it's on top of other content */
+    }
+
+    .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      height: var(--navbar-height);
+      align-items: center;
+      background-color: var(--navbar-bg-color);
+    }
+
+    .home-link,
+    .navbar-link {
+      color: var(--navbar-text-color);
+      text-decoration: none;
+      display: flex;
+      font-weight: 400;
+      align-items: center;
+    }
+
+    .home-link:is(:focus, :hover) {
+      color: var(--navbar-text-color-focus);
+    }
+
+    .navbar-link {
+      justify-content: center;
+      width: 100%;
+      padding: 0.4em 0.8em;
+      border-radius: 5px;
+    }
+
+    .navbar-link:is(:focus, :hover) {
+      color: var(--navbar-text-color-focus);
+      background-color: var(--navbar-bg-contrast);
+    }
+
+    .navbar-logo {
+      background-color: #579457;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      margin-right: 0.5em;
+    }
+
+    #navbar-toggle {
+      cursor: pointer;
+      border: none;
+      background-color: transparent;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .icon-bar {
+      display: block;
+      width: 25px;
+      height: 4px;
+      margin: 2px;
+      background-color: var(--navbar-text-color);
+    }
+
+    #navbar-toggle:is(:focus, :hover) .icon-bar {
+      background-color: var(--navbar-text-color-focus);
+    }
+
+    #navbar-toggle[aria-expanded="true"] .icon-bar:is(:first-child, :last-child) {
+      position: absolute;
+      margin: 0;
+      width: 30px;
+    }
+
+    #navbar-toggle[aria-expanded="true"] .icon-bar:first-child {
+      transform: rotate(45deg);
+    }
+
+    #navbar-toggle[aria-expanded="true"] .icon-bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    #navbar-toggle[aria-expanded="true"] .icon-bar:last-child {
+      transform: rotate(-45deg);
+    }
+
+      right: 0; /* Adjusted to slide from right to left */
+
+
+    #navbar-toggle[aria-expanded="true"] + #navbar-menu {
+      background-color: rgba(0, 0, 0, 0.4);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .navbar-links {
+      list-style: none;
+      position: absolute;
+      background-color: var(--navbar-bg-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      left: 0;
+      right: 0;
+      margin: 1.4rem;
+      border-radius: 5px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    #navbar-toggle[aria-expanded="true"] + #navbar-menu .navbar-links {
+      padding: 1em;
+    }
+
+   .navbar-links {
+      list-style: none;
+      position: absolute;
+      background-color: var(--navbar-bg-color);
+      display: flex;
+      flex-direction: column;
+      width: 100%; /* Take the whole width */
+      height: 100%;
+    }
+    
+    @media screen and (min-width: 700px) {
+      #navbar-toggle,
+      #navbar-toggle[aria-expanded="true"] {
+        display: none;
+      }
+
+      #navbar-menu,
+      #navbar-toggle[aria-expanded="true"] #navbar-menu {
+        visibility: visible;
+        opacity: 1;
+        position: static;
+        display: block;
+        height: 100%;
+      }
+
+      .navbar-links,
+      #navbar-toggle[aria-expanded="true"] #navbar-menu .navbar-links {
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        position: static;
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+      }
+    }
+        .navbar-logo {
+      background-color: #579457;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      margin-right: 0.5em;
+    }
+  
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #fff; /* Set text color to white */
+}
+
+
+</style>
+</head>
+<body>
+
+
+
+
+
+
+<body translate="no">
+  <header id="navbar">
+    <nav class="navbar-container container">
+      <a href="/" class="home-link">
+ <img src="https://codehs.com/uploads/bbceeda7411da80560ed1cc611229869" alt="LOGO" width="30px" height="30px">' Khaled Yousef</a>
+      <button type="button" id="navbar-toggle" aria-controls="navbar-menu" aria-label="Toggle menu" aria-expanded="false">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div id="navbar-menu" aria-labelledby="navbar-toggle">
+        <ul class="navbar-links">
+          <li class="navbar-item"><a class="navbar-link" href="index.html">Home</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="research-papers.html"><center>Research Papers</center></a></li>
+          <li class="navbar-item"><a class="navbar-link" href="popup.html">Contact me</a></li>
+        <li class="navbar-item"><a class="navbar-link scrollDownLink" href="#">Projects</a></li>
+        <li class="navbar-item"><a class="navbar-link scrollDownLink" href="#"><center>Media Mentions</center></a></li>
+        <li class="navbar-item"><a class="navbar-link scrollDownLink" href="#"><center>Awards & Honors</center></a></li>
+        <li class="navbar-item"><a class="navbar-link scrollDownLink" href="#">Publications</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <script>
+  
+document.querySelectorAll('.scrollDownLink').forEach(link => {
+  link.addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent default link behavior
+    var currentPosition = window.pageYOffset;
+    var newPosition = currentPosition + 1460;
+    window.scrollTo({
+      top: newPosition,
+      behavior: 'smooth'
+    });
+  });
+});
+
+
+
+
+
+    const navbar = document.getElementById('navbar');
+    let lastScrollTop = 0;
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (currentScroll > lastScrollTop) {
+        // Downscroll code
+        navbar.style.transform = 'translateY(-100%)'; // Hide the navigation bar
+      } else {
+        // Upscroll code
+        navbar.style.transform = 'translateY(0)'; // Show the navigation bar
+      }
+
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+    });
+  </script>
+</body>
+
+</html>
+
+
+
+<br>
+<br>
+<br>
+<br>
+
+<hr>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+        <link rel="icon" type="image/x-icon" href="https://codehs.com/uploads/bbceeda7411da80560ed1cc611229869">
+        
+        <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Dr. Khaled Yousef</title>
+  <style>
+    /* CSS styling */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      margin: 0;
+      padding: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #000000;
+    }
+    .form-container {
+      width: 80%;
+      background-color: #e6e6e6;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border: 1px solid #ccc;
+      transform: scale(0.8); /* Initial zoom out effect */
+      transition: transform 0.3s ease; /* Smooth transition */
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    textarea {
+      resize: vertical;
+      height: 100px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+<br><br><br> <!-- Three line breaks added above the form -->
+
+<!-- The popup form -->
+<div id="contactForm" class="form-container">
+  <h2>Contact Dr. Khaled Yousef</h2>
+<form action="https://formspree.io/f/xayrabgl" method="POST">
+  <!-- Add a hidden input field to specify the redirection URL -->
+
+
+    <label for="name">Your Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Your Email (prefer work E-mail, if available):</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="location">Where do you live? (City, Country):</label>
+    <input type="text" id="location" name="location" required>
+
+    <label for="occupation">What do you do for a living?</label>
+    <input type="text" id="occupation" name="occupation" required>
+
+    <label for="subject">Subject:</label>
+    <input type="text" id="subject" name="subject" required>
+
+    <label for="message">Your Message:</label>
+    <textarea id="message" name="message" required></textarea>
+
+    <button type="submit">Send</button>
+  </form>
+</div>
+
+<br><br><br> <!-- Three line breaks added below the form -->
+
+<script>
+  // Function to open the popup form
+  function openForm() {
+    document.getElementById("contactForm").style.transform = "scale(1)"; // Zoom in to 100%
+  }
+
+  // Function to close the popup form
+  function closeForm() {
+    document.getElementById("contactForm").style.transform = "scale(0.8)"; // Zoom out to 80%
+  }
+
+  // Event listener for clicking the "Message" button
+  document.getElementById("openForm").addEventListener("click", function(event) {
+    event.preventDefault(); // Prevent the default behavior of the button
+    openForm(); // Open the popup form
+  });
+
+  // Event listener for clicking outside the popup form to close it
+  window.addEventListener("click", function(event) {
+    const contactForm = document.getElementById("contactForm");
+    if (event.target === contactForm) {
+      closeForm(); // Close the popup form if clicked outside
+    }
+  });
+</script>
+
+</body>
+</html>
+
+
+<style>
+body {
+  background-image: url('https://codehs.com/uploads/76bd4a5c40e17e586d2be355d85096c4');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+</style>
